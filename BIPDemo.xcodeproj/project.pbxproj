@@ -25,6 +25,11 @@
 		268E97F02C2DEFFB00E1A4C0 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97EF2C2DEFFB00E1A4C0 /* Enums.swift */; };
 		268E97F32C2DF09E00E1A4C0 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97F22C2DF09E00E1A4C0 /* JSONLoader.swift */; };
 		268E97F52C2DFE4A00E1A4C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 268E97F42C2DFE4A00E1A4C0 /* GoogleService-Info.plist */; };
+		26DC4E252C2E1249001A8719 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC4E242C2E1249001A8719 /* APIService.swift */; };
+		26DC4E272C2E1276001A8719 /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC4E262C2E1276001A8719 /* ContentView2.swift */; };
+		26DC4E292C2E1433001A8719 /* UserFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC4E282C2E1432001A8719 /* UserFeedViewModel.swift */; };
+		26DC4E2B2C2E1474001A8719 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC4E2A2C2E1474001A8719 /* LoadingView.swift */; };
+		26DC4E2D2C2E1488001A8719 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC4E2C2C2E1488001A8719 /* UserProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +67,11 @@
 		268E97EF2C2DEFFB00E1A4C0 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		268E97F22C2DF09E00E1A4C0 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		268E97F42C2DFE4A00E1A4C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		26DC4E242C2E1249001A8719 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		26DC4E262C2E1276001A8719 /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
+		26DC4E282C2E1432001A8719 /* UserFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedViewModel.swift; sourceTree = "<group>"; };
+		26DC4E2A2C2E1474001A8719 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		26DC4E2C2C2E1488001A8719 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,7 @@
 				268E97E72C2DE7A400E1A4C0 /* Views */,
 				268E97E62C2DE79F00E1A4C0 /* Models */,
 				268E97AC2C2DE32800E1A4C0 /* BIPDemoApp.swift */,
+				26DC4E262C2E1276001A8719 /* ContentView2.swift */,
 				268E97AE2C2DE32800E1A4C0 /* ContentView.swift */,
 				268E97B02C2DE32A00E1A4C0 /* Assets.xcassets */,
 				268E97B22C2DE32A00E1A4C0 /* BIPDemo.entitlements */,
@@ -170,6 +181,8 @@
 		268E97E72C2DE7A400E1A4C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				26DC4E2A2C2E1474001A8719 /* LoadingView.swift */,
+				26DC4E2C2C2E1488001A8719 /* UserProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,6 +190,7 @@
 		268E97E82C2DE7A800E1A4C0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				26DC4E282C2E1432001A8719 /* UserFeedViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -185,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				268E97EC2C2DE86300E1A4C0 /* FirestoreService.swift */,
+				26DC4E242C2E1249001A8719 /* APIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -348,10 +363,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				268E97AF2C2DE32800E1A4C0 /* ContentView.swift in Sources */,
+				26DC4E252C2E1249001A8719 /* APIService.swift in Sources */,
 				268E97ED2C2DE86300E1A4C0 /* FirestoreService.swift in Sources */,
+				26DC4E2B2C2E1474001A8719 /* LoadingView.swift in Sources */,
 				268E97F32C2DF09E00E1A4C0 /* JSONLoader.swift in Sources */,
 				268E97F02C2DEFFB00E1A4C0 /* Enums.swift in Sources */,
+				26DC4E272C2E1276001A8719 /* ContentView2.swift in Sources */,
+				26DC4E2D2C2E1488001A8719 /* UserProfileView.swift in Sources */,
 				268E97AD2C2DE32800E1A4C0 /* BIPDemoApp.swift in Sources */,
+				26DC4E292C2E1433001A8719 /* UserFeedViewModel.swift in Sources */,
 				268E97EB2C2DE7D700E1A4C0 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

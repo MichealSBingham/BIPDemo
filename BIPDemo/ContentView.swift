@@ -11,6 +11,41 @@ import Firebase
 
 
 struct ContentView: View {
+    @StateObject private var viewModel = UserFeedViewModel()
+
+    var body: some View {
+        VStack {
+            if viewModel.isLoading {
+                LoadingView()
+            } else if let errorMessage = viewModel.errorMessage {
+                Text("Error: \(errorMessage)")
+            } else if let currentUser = viewModel.currentUser {
+                UserProfileView(user: currentUser, viewModel: viewModel)
+            } else {
+                VStack {
+                    Button("Add Users") {
+                        Task {
+                            await viewModel.addUsers()
+                        }
+                    }
+                    .padding()
+                }
+            }
+        }
+        .onAppear {
+            Task {
+                await viewModel.loadUsers()
+            }
+        }
+    }
+}
+
+
+
+
+
+/*
+struct ContentView3: View {
     private let firestoreService = FirestoreService()
 
     var body: some View {
@@ -53,7 +88,7 @@ struct ContentView: View {
         }
     }
 }
-
+*/
 
 
 

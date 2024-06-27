@@ -6,15 +6,16 @@
 //
 
 import Foundation
-import Firebase
 
-class UserViewModel: ObservableObject {
+@MainActor
+class UserFeedViewModel: ObservableObject {
     @Published var users: [User] = []
     @Published var currentUser: User?
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
 
     private let apiService = APIService()
+    private let firestoreService = FirestoreService()
 
     func loadUsers() async {
         isLoading = true
@@ -32,12 +33,8 @@ class UserViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
         do {
-            if let url = Bundle.main.url(forResource: "Users", withExtension: "json") {
-                let data = try Data(contentsOf: url)
-                let users = try JSONDecoder().decode([User].self, from: data)
-                try await apiService.addUsersToFirestore(users: users)
-                await loadUsers()
-            }
+            try await firestoreService.uploadUsers(from: "Users")
+            await loadUsers()
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -48,7 +45,7 @@ class UserViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
         do {
-            try await apiService.deleteAllUsersFromFirestore()
+            try await firestoreService.deleteAllUsers()
             users.removeAll()
             currentUser = nil
         } catch {
