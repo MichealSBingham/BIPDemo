@@ -8,29 +8,33 @@
 import Foundation
 import FirebaseFirestoreSwift
 
+
+
+
 struct User: Codable, Identifiable {
-    @DocumentID var id: String?
+    var id: String?
     var firstName: String
     var birthDate: BirthDate
-    var gender: String
+    var gender: Gender
     var education: Education
     var vices: Vices
-    var politicalBeliefs: ValueWrapper
-    var childrenPresence: ValueWrapper
-    var religiousBeliefs: ValueWrapper
-    var familyPlans: ValueWrapper
-    var hometown: ValueWrapper
+    var politicalBeliefs: ValueWrapper<PoliticalBelief>
+    var childrenPresence: ValueWrapper<ChildrenPresence>
+    var religiousBeliefs: ValueWrapper<ReligiousBelief>
+    var familyPlans: ValueWrapper<FamilyPlans>
+    var hometown: ValueWrapper<String>
     var neighborhood: Neighborhood
     var job: Job
-    var height: ValueWrapper
-    var ethnicity: [String]
-    var relationship: ValueWrapper
-    var typeOfRelationship: ValueWrapper
+    var height: ValueWrapper<Int>
+    var ethnicity: ValueWrapper<[Ethnicity]>
+    var relationships: ValueWrapper<[Relationship]>
+    var typeOfRelationship: ValueWrapper<String>?
     var profileComponents: [String]
     var photos: [Photo]
-    var video: Video?
+    var video: Video? // Make sure video is optional
     var showInFeed: Bool?
     var isSubscribed: Bool?
+    var pets: [String: Int]?
 
     enum CodingKeys: String, CodingKey {
         case id = "uid"
@@ -48,13 +52,14 @@ struct User: Codable, Identifiable {
         case job
         case height
         case ethnicity
-        case relationship
+        case relationships = "relationships"
         case typeOfRelationship = "type_of_relationship"
         case profileComponents = "profile_components"
         case photos
         case video
         case showInFeed = "show_in_feed"
         case isSubscribed = "is_subscribed"
+        case pets
     }
 }
 
@@ -65,15 +70,15 @@ struct BirthDate: Codable {
 
 struct Education: Codable {
     var hidden: Bool
-    var degree: String
+    var degree: EducationDegree
     var place: String
 }
 
 struct Vices: Codable {
-    var alcohol: ValueWrapper
-    var psychedelics: ValueWrapper
-    var thcOrWeed: ValueWrapper
-    var tobacco: ValueWrapper
+    var alcohol: ValueWrapper<Vice>
+    var psychedelics: ValueWrapper<Vice>
+    var thcOrWeed: ValueWrapper<Vice>
+    var tobacco: ValueWrapper<Vice>
 
     enum CodingKeys: String, CodingKey {
         case alcohol
@@ -83,14 +88,14 @@ struct Vices: Codable {
     }
 }
 
-struct ValueWrapper: Codable {
+struct ValueWrapper<T: Codable>: Codable {
     var hidden: Bool
-    var value: String
+    var value: T
 }
 
 struct Neighborhood: Codable {
     var country: String?
-    var city: ValueWrapper
+    var city: ValueWrapper<String>
     var name: String?
 }
 
@@ -118,7 +123,7 @@ struct Photo: Codable {
 
 struct Video: Codable {
     var uid: String
-    var purpose: String
+    var purpose: String?
     var width: Int
     var height: Int
     var urlString: String

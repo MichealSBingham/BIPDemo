@@ -22,6 +22,9 @@
 		268E97E32C2DE66C00E1A4C0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 268E97E22C2DE66C00E1A4C0 /* FirebaseStorage */; };
 		268E97E52C2DE71000E1A4C0 /* Users.json in Resources */ = {isa = PBXBuildFile; fileRef = 268E97E42C2DE71000E1A4C0 /* Users.json */; };
 		268E97EB2C2DE7D700E1A4C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97EA2C2DE7D700E1A4C0 /* User.swift */; };
+		268E97ED2C2DE86300E1A4C0 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97EC2C2DE86300E1A4C0 /* FirestoreService.swift */; };
+		268E97F02C2DEFFB00E1A4C0 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97EF2C2DEFFB00E1A4C0 /* Enums.swift */; };
+		268E97F32C2DF09E00E1A4C0 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97F22C2DF09E00E1A4C0 /* JSONLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		268E97D72C2DE5C600E1A4C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		268E97E42C2DE71000E1A4C0 /* Users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Users.json; sourceTree = "<group>"; };
 		268E97EA2C2DE7D700E1A4C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		268E97EC2C2DE86300E1A4C0 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		268E97EF2C2DEFFB00E1A4C0 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		268E97F22C2DF09E00E1A4C0 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,12 +117,13 @@
 		268E97AB2C2DE32800E1A4C0 /* BIPDemo */ = {
 			isa = PBXGroup;
 			children = (
+				268E97EE2C2DEFEB00E1A4C0 /* Resources */,
+				268E97F12C2DF08E00E1A4C0 /* Utils */,
 				268E97E92C2DE7AD00E1A4C0 /* Services */,
 				268E97E82C2DE7A800E1A4C0 /* ViewModels */,
 				268E97E72C2DE7A400E1A4C0 /* Views */,
 				268E97E62C2DE79F00E1A4C0 /* Models */,
 				268E97D72C2DE5C600E1A4C0 /* GoogleService-Info.plist */,
-				268E97E42C2DE71000E1A4C0 /* Users.json */,
 				268E97AC2C2DE32800E1A4C0 /* BIPDemoApp.swift */,
 				268E97AE2C2DE32800E1A4C0 /* ContentView.swift */,
 				268E97B02C2DE32A00E1A4C0 /* Assets.xcassets */,
@@ -155,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				268E97EA2C2DE7D700E1A4C0 /* User.swift */,
+				268E97EF2C2DEFFB00E1A4C0 /* Enums.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,8 +184,25 @@
 		268E97E92C2DE7AD00E1A4C0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				268E97EC2C2DE86300E1A4C0 /* FirestoreService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		268E97EE2C2DEFEB00E1A4C0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				268E97E42C2DE71000E1A4C0 /* Users.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		268E97F12C2DF08E00E1A4C0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				268E97F22C2DF09E00E1A4C0 /* JSONLoader.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +348,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				268E97AF2C2DE32800E1A4C0 /* ContentView.swift in Sources */,
+				268E97ED2C2DE86300E1A4C0 /* FirestoreService.swift in Sources */,
+				268E97F32C2DF09E00E1A4C0 /* JSONLoader.swift in Sources */,
+				268E97F02C2DEFFB00E1A4C0 /* Enums.swift in Sources */,
 				268E97AD2C2DE32800E1A4C0 /* BIPDemoApp.swift in Sources */,
 				268E97EB2C2DE7D700E1A4C0 /* User.swift in Sources */,
 			);
