@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyCIRbZO_7n2UdxUUGa7fEbaCj5lPt2fKvg</string>
+	<string>AIzaSyBR0E_1Nwq4VZA3Xsgt2jcTc863rW-Iod8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>657082660700</string>
+	<string>715444702931</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>bipdemo.BIPDemo</string>
 	<key>PROJECT_ID</key>
-	<string>bipdemo-4abc8</string>
+	<string>bipdemo-8602f</string>
 	<key>STORAGE_BUCKET</key>
-	<string>bipdemo-4abc8.appspot.com</string>
+	<string>bipdemo-8602f.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:657082660700:ios:e83675a4bfbde01d22b399</string>
+	<string>1:715444702931:ios:493148e149c1e51f39ce26</string>
 </dict>
 </plist>
