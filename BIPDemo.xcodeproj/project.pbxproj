@@ -14,7 +14,6 @@
 		268E97BF2C2DE32B00E1A4C0 /* BIPDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97BE2C2DE32B00E1A4C0 /* BIPDemoTests.swift */; };
 		268E97C92C2DE32B00E1A4C0 /* BIPDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97C82C2DE32B00E1A4C0 /* BIPDemoUITests.swift */; };
 		268E97CB2C2DE32B00E1A4C0 /* BIPDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97CA2C2DE32B00E1A4C0 /* BIPDemoUITestsLaunchTests.swift */; };
-		268E97D82C2DE5C600E1A4C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 268E97D72C2DE5C600E1A4C0 /* GoogleService-Info.plist */; };
 		268E97DB2C2DE66C00E1A4C0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 268E97DA2C2DE66C00E1A4C0 /* FirebaseAuth */; };
 		268E97DD2C2DE66C00E1A4C0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 268E97DC2C2DE66C00E1A4C0 /* FirebaseFirestore */; };
 		268E97DF2C2DE66C00E1A4C0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 268E97DE2C2DE66C00E1A4C0 /* FirebaseFirestoreSwift */; };
@@ -25,6 +24,7 @@
 		268E97ED2C2DE86300E1A4C0 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97EC2C2DE86300E1A4C0 /* FirestoreService.swift */; };
 		268E97F02C2DEFFB00E1A4C0 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97EF2C2DEFFB00E1A4C0 /* Enums.swift */; };
 		268E97F32C2DF09E00E1A4C0 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E97F22C2DF09E00E1A4C0 /* JSONLoader.swift */; };
+		268E97F52C2DFE4A00E1A4C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 268E97F42C2DFE4A00E1A4C0 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,12 +56,12 @@
 		268E97C42C2DE32B00E1A4C0 /* BIPDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BIPDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		268E97C82C2DE32B00E1A4C0 /* BIPDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIPDemoUITests.swift; sourceTree = "<group>"; };
 		268E97CA2C2DE32B00E1A4C0 /* BIPDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIPDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		268E97D72C2DE5C600E1A4C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		268E97E42C2DE71000E1A4C0 /* Users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Users.json; sourceTree = "<group>"; };
 		268E97EA2C2DE7D700E1A4C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		268E97EC2C2DE86300E1A4C0 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		268E97EF2C2DEFFB00E1A4C0 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		268E97F22C2DF09E00E1A4C0 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
+		268E97F42C2DFE4A00E1A4C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +97,7 @@
 		268E97A02C2DE32800E1A4C0 = {
 			isa = PBXGroup;
 			children = (
+				268E97F42C2DFE4A00E1A4C0 /* GoogleService-Info.plist */,
 				268E97AB2C2DE32800E1A4C0 /* BIPDemo */,
 				268E97BD2C2DE32B00E1A4C0 /* BIPDemoTests */,
 				268E97C72C2DE32B00E1A4C0 /* BIPDemoUITests */,
@@ -123,7 +124,6 @@
 				268E97E82C2DE7A800E1A4C0 /* ViewModels */,
 				268E97E72C2DE7A400E1A4C0 /* Views */,
 				268E97E62C2DE79F00E1A4C0 /* Models */,
-				268E97D72C2DE5C600E1A4C0 /* GoogleService-Info.plist */,
 				268E97AC2C2DE32800E1A4C0 /* BIPDemoApp.swift */,
 				268E97AE2C2DE32800E1A4C0 /* ContentView.swift */,
 				268E97B02C2DE32A00E1A4C0 /* Assets.xcassets */,
@@ -320,8 +320,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				268E97E52C2DE71000E1A4C0 /* Users.json in Resources */,
+				268E97F52C2DFE4A00E1A4C0 /* GoogleService-Info.plist in Resources */,
 				268E97B52C2DE32A00E1A4C0 /* Preview Assets.xcassets in Resources */,
-				268E97D82C2DE5C600E1A4C0 /* GoogleService-Info.plist in Resources */,
 				268E97B12C2DE32A00E1A4C0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

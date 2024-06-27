@@ -9,8 +9,6 @@ import Foundation
 import FirebaseFirestoreSwift
 
 
-
-
 struct User: Codable, Identifiable {
     var id: String?
     var firstName: String
@@ -31,9 +29,9 @@ struct User: Codable, Identifiable {
     var typeOfRelationship: ValueWrapper<String>?
     var profileComponents: [String]
     var photos: [Photo]
-    var video: Video? // Make sure video is optional
+    var video: Video? // There were some optional fields here so I had to make this optional because "purpose" was missing from the documentation
     var showInFeed: Bool?
-    var isSubscribed: Bool?
+    var isSubscribed: Bool? // This also wasn't included in the documenation
     var pets: [String: Int]?
 
     enum CodingKeys: String, CodingKey {
