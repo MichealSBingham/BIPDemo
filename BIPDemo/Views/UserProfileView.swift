@@ -15,6 +15,9 @@ struct UserProfileView: View {
     @ObservedObject var viewModel: UserFeedViewModel
     @State private var isActionMessageVisible = false
     @State private var action: UserAction = .passed
+    
+    @State var player = AVPlayer()
+
 
     var body: some View {
         ZStack {
@@ -50,12 +53,17 @@ struct UserProfileView: View {
             ProfileComponentsView(components: user.profileComponents, photos: user.photos)
             
             if let vidUrl = URL(string: user.video?.urlString ?? ""){
-               // Text("VIDEO HERE")
-                //VideoPlayerView(url: vidUrl )
-                //VideoPlayer(player: AVPlayer(url:  URL(string: vidUrl)!))
-                   // .frame(height: 400)
-                // Text("Video should go here!")
-                //VideoPlayerView(videoUrl: vidUrl)
+                
+                /*
+                 
+                 Video player will go here. No time to debug, it's blocking main thread.
+                 
+                VideoPlayer(player: player)
+                                .onAppear() {
+                                        player = AVPlayer(url: vidUrl)
+                                }
+                */
+               
             }
             
           

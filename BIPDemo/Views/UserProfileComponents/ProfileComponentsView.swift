@@ -17,6 +17,7 @@ struct ProfileComponentsView: View {
             VStack(alignment: .leading) {
                 Text(components[index])
                     .padding(.horizontal)
+                    .transition(.opacity)
 
                 if index < photos.count {
                     RemoteImageView(url: photos[index].urlString)
@@ -24,6 +25,7 @@ struct ProfileComponentsView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.horizontal)
                         .clipped()
+                        .transition(.opacity)
                      
                 }
             }

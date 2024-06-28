@@ -251,8 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				26DC4E352C2E213E001A8719 /* MeetUserView.swift */,
-				26DC4E3C2C2E2289001A8719 /* UserProfileHeaderView.swift */,
 				26DC4E472C2E2ECA001A8719 /* ProfileComponentsView.swift */,
+				26DC4E3C2C2E2289001A8719 /* UserProfileHeaderView.swift */,
 				26DC4E492C2E3382001A8719 /* PassView.swift */,
 				26DC4E4B2C2E355A001A8719 /* RequestADateView.swift */,
 			);
