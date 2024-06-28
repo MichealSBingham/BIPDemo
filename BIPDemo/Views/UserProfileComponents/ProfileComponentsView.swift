@@ -11,25 +11,41 @@ import SwiftUI
 struct ProfileComponentsView: View {
     let components: [String]
     let photos: [Photo]
-
+    
     var body: some View {
         ForEach(0..<components.count, id: \.self) { index in
             VStack(alignment: .leading) {
-                Text(components[index])
-                    .padding(.horizontal)
-                    .transition(.opacity)
-
-                if index < photos.count {
-                    RemoteImageView(url: photos[index].urlString)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: .infinity)
+                FadeInView {
+                    Text(components[index])
                         .padding(.horizontal)
-                        .clipped()
-                        .transition(.opacity)
-                     
+                }
+                
+                if index < photos.count {
+                    FadeInView {
+                        RemoteImageView(url: photos[index].urlString)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal)
+                            .clipped()
+                    }
                 }
             }
         }
+    }
+}
+
+struct FadeInView<Content: View>: View {
+    @State private var isVisible = false
+    let content: () -> Content
+    
+    var body: some View {
+        content()
+            .opacity(isVisible ? 1 : 0)
+            .onAppear {
+                withAnimation(.easeIn(duration: 0.5)) {
+                    isVisible = true
+                }
+            }
     }
 }
 

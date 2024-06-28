@@ -9,7 +9,7 @@ import SwiftUI
 import AVKit
 
 
-
+/// Not working-- blocking main thread.
 struct VideoPlayerView: View {
     
     private var videoURL : URL
@@ -41,11 +41,10 @@ struct VideoPlayerView: View {
                         self.player?.seek(to: .zero)
                         self.player?.play()
                     }
-                }//: Task
-            }//: onAppear
+                }
+            }
             .onDisappear() {
                 Task {
-                    // Stop the player when the view disappears
                     player?.pause()
                     
                 }

@@ -18,7 +18,7 @@ struct ActionMessageView: View {
                 Image("Butler")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 100) // Adjust size as needed
+                    .frame(width: 100, height: 100)
                     .transition(.scale)
                     .animation(.easeInOut(duration: 0.5))
                 
@@ -27,8 +27,7 @@ struct ActionMessageView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.black)
                     .padding()
-                  //  .background(Color.black.opacity(0.7))
-                   // .cornerRadius(10)
+                  
                     .transition(.scale)
                     .animation(.easeInOut(duration: 0.5))
             }
