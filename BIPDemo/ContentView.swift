@@ -22,19 +22,33 @@ struct ContentView: View {
             } else if let currentUser = viewModel.currentUser {
                 UserProfileView(user: currentUser, viewModel: viewModel)
             } else {
-                VStack {
-                    Button("Add Users") {
-                        Task {
-                            await viewModel.addUsers()
-                        }
+                
+                //MARK: - Entry point View
+                ZStack{
+                    
+                    Image("Butler")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100, height: 100)
+                        .padding(.leading)
+                        .transition(.scale)
+                        .animation(.easeInOut(duration: 0.5))
+                    
+                    VStack {
+                        
+                        Spacer()
+                        
+                        NextButtonView(action: {
+                            Task {
+                                await viewModel.addUsersAndLoad()
+                            }
+                        }, text: "Add Users")
+                        
+                        .padding()
                     }
-                    .padding()
+                    
                 }
-            }
-        }
-        .onAppear {
-            Task {
-                await viewModel.loadUsers()
+                
             }
         }
     }
@@ -44,51 +58,7 @@ struct ContentView: View {
 
 
 
-/*
-struct ContentView3: View {
-    private let firestoreService = FirestoreService()
 
-    var body: some View {
-        VStack {
-            Button(action: {
-                self.testJSONDecoding()
-            }) {
-                Text("Test JSON Decoding")
-                    .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-            }
-
-            Button(action: {
-                firestoreService.uploadUsers(from: "Users") { error in
-                    if let error = error {
-                        print("Error uploading users: \(error.localizedDescription)")
-                    } else {
-                        print("Upload successful")
-                    }
-                }
-            }) {
-                Text("Upload Users to Firestore")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-            }
-        }
-        .padding()
-    }
-
-    func testJSONDecoding() {
-        do {
-            let users: [User] = JSONLoader.load("Users", as: [User].self)
-            print("Successfully decoded users: \(users)")
-        } catch {
-            print("Failed to decode users: \(error)")
-        }
-    }
-}
-*/
 
 
 

@@ -18,12 +18,15 @@ struct NextButtonView: View {
         }) {
             Text(.init(text))
                        .font(.headline)
-                       .foregroundColor(Color(UIColor(red: 67/255, green: 124/255, blue: 186/255, alpha: 1.00)))
-                       .padding()
+                       .foregroundColor(.white)
                        .frame(maxWidth: .infinity)
-                       .background(Color.white)
+                       .background(Color(hex: "F74844"))
                        .clipShape(Capsule())
-                       .padding(.horizontal)
+                       .lineLimit(1)
+                       .minimumScaleFactor(0.1)
+                       .padding()
+                       
+                     
         }
         
     }

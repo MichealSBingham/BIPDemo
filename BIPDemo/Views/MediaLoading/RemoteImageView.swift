@@ -10,21 +10,37 @@ import SwiftUI
 
 struct RemoteImageView: View {
     @StateObject private var loader: ImageLoader
-    var placeholder: Image
+    @State private var isLoaded = false
 
-    init(url: String, placeholder: Image = Image(systemName: "photo")) {
+    init(url: String) {
         _loader = StateObject(wrappedValue: ImageLoader(url: url))
-        self.placeholder = placeholder
     }
 
     var body: some View {
-        if let image = loader.image {
-            Image(uiImage: image)
-                .resizable()
-        } else {
-            placeholder
-                .resizable()
+        ZStack {
+            Rectangle()
+                .fill(Color.white)
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(10)
+                .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 2.21)
+                .overlay(
+                    Group {
+                        if let image = loader.image {
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .opacity(isLoaded ? 1 : 0)
+                                .cornerRadius(10)
+                                .onAppear {
+                                    withAnimation(.easeIn(duration: 0.5)) {
+                                        isLoaded = true
+                                    }
+                                }
+                        }
+                    }
+                )
         }
+        .padding()
     }
 }
 
@@ -34,12 +50,16 @@ class ImageLoader: ObservableObject {
     private static let imageCache = NSCache<NSString, UIImage>()
 
     init(url: String) {
-        loadImage(from: url)
+        Task {
+            await loadImage(from: url)
+        }
     }
 
-    private func loadImage(from url: String) {
+    private func loadImage(from url: String) async {
         if let cachedImage = ImageLoader.imageCache.object(forKey: url as NSString) {
-            self.image = cachedImage
+            DispatchQueue.main.async {
+                self.image = cachedImage
+            }
             return
         }
 
@@ -47,20 +67,23 @@ class ImageLoader: ObservableObject {
             return
         }
 
-        let task = URLSession.shared.dataTask(with: imageURL) { data, response, error in
-            guard let data = data, let uiImage = UIImage(data: data) else {
-                return
+        do {
+            let (data, _) = try await URLSession.shared.data(from: imageURL)
+            if let uiImage = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.image = uiImage
+                    ImageLoader.imageCache.setObject(uiImage, forKey: url as NSString)
+                }
             }
-
-            DispatchQueue.main.async {
-                self.image = uiImage
-                ImageLoader.imageCache.setObject(uiImage, forKey: url as NSString)
-            }
+        } catch {
+            print("Error loading image: \(error)")
         }
-        task.resume()
     }
 }
 
+
+
 #Preview {
-    RemoteImageView(url: "https://google.com")
+    RemoteImageView(url: "https://picsum.photos/seed/picsum/300/300")
+        .frame(width: 400)
 }

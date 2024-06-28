@@ -21,13 +21,14 @@ struct UserProfileHeaderView: View {
                     .padding(.leading)
                 
                 MeetUserView(name: name, age: age)
+                   
                 
           
                 Spacer()
                 
                 Image("settings")
                     .resizable()
-                    .frame(width: 40, height: 40)
+                    .frame(width: 35, height: 35)
                     .aspectRatio(contentMode: .fit)
                     .padding()
             }

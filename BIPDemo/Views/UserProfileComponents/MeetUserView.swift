@@ -18,13 +18,14 @@ struct MeetUserView: View {
             //.font(.custom("SF Pro Display", size: 24))
             .font(.title)
             .fontWeight(.black)
+            .lineLimit(1)
+            .minimumScaleFactor(0.7)
             .foregroundColor(.white)
             .padding()
             .background(Color(hex: "F74844"))
             .cornerRadius(10)
             .opacity(isVisible ? 1 : 0)
-            .lineLimit(1)
-            .minimumScaleFactor(0.1)
+            .frame(width: 245, height: 38)
             .onAppear {
                 withAnimation(Animation.easeInOut(duration: 1.0)) {
                     isVisible = true

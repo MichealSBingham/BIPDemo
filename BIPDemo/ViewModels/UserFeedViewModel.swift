@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 @MainActor
 class UserFeedViewModel: ObservableObject {
     @Published var users: [User] = []
@@ -20,6 +21,7 @@ class UserFeedViewModel: ObservableObject {
     func loadUsers() async {
         isLoading = true
         errorMessage = nil
+
         do {
             users = try await apiService.fetchUsers()
             currentUser = users.first
@@ -32,18 +34,32 @@ class UserFeedViewModel: ObservableObject {
     func addUsers() async {
         isLoading = true
         errorMessage = nil
+
         do {
             try await firestoreService.uploadUsers(from: "Users")
             await loadUsers()
         } catch {
             errorMessage = error.localizedDescription
+            isLoading = false
         }
-        isLoading = false
+    }
+
+    func addUsersAndLoad() async {
+        do {
+            try await firestoreService.uploadUsers(from: "Users")
+            await loadUsers()
+        } catch {
+            DispatchQueue.main.async {
+                self.errorMessage = error.localizedDescription
+                self.isLoading = false
+            }
+        }
     }
 
     func deleteAllUsers() async {
         isLoading = true
         errorMessage = nil
+
         do {
             try await firestoreService.deleteAllUsers()
             users.removeAll()

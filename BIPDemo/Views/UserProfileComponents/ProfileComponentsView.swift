@@ -7,12 +7,34 @@
 
 import SwiftUI
 
+
 struct ProfileComponentsView: View {
+    let components: [String]
+    let photos: [Photo]
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(0..<components.count, id: \.self) { index in
+            VStack(alignment: .leading) {
+                Text(components[index])
+                    .padding(.horizontal)
+
+                if index < photos.count {
+                    RemoteImageView(url: photos[index].urlString)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal)
+                        .clipped()
+                     
+                }
+            }
+        }
     }
 }
 
+
 #Preview {
-    ProfileComponentsView()
+    ScrollView{
+        ProfileComponentsView(components: User.sampleUser.profileComponents, photos: User.sampleUser.photos)
+    }
+   
 }

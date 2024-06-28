@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import AVFoundation
+import _AVKit_SwiftUI
 
 
 struct UserProfileView: View {
@@ -20,11 +22,13 @@ struct UserProfileView: View {
                 VStack {
                     ScrollView {
                         profileContent
+                            
                         
                        requestDateButton
                         .padding()
                     }
                 }
+                .ignoresSafeArea()
                 .transition(.opacity)
 
                 //MARK: - Pass Button
@@ -41,9 +45,20 @@ struct UserProfileView: View {
         VStack {
             
             UserProfileHeaderView(name: user.firstName, age: user.calculateAge())
+                .padding(.bottom)
             
-           
-            // Add other user details here
+            ProfileComponentsView(components: user.profileComponents, photos: user.photos)
+            
+            if let vidUrl = URL(string: user.video?.urlString ?? ""){
+               // Text("VIDEO HERE")
+                //VideoPlayerView(url: vidUrl )
+                //VideoPlayer(player: AVPlayer(url:  URL(string: vidUrl)!))
+                   // .frame(height: 400)
+                // Text("Video should go here!")
+                //VideoPlayerView(videoUrl: vidUrl)
+            }
+            
+          
         }
     }
     
@@ -55,14 +70,9 @@ struct UserProfileView: View {
                 Button(action: {
                     performAction(with: .passed)
                 }) {
-                    Text("Pass")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.red)
-                        .cornerRadius(10)
+                    PassView()
                 }
-                .padding()
+           
                 .transition(.opacity)
                 
                 Spacer()
@@ -74,10 +84,15 @@ struct UserProfileView: View {
     private var requestDateButton: some View {
         HStack{
             Spacer()
-            Button("Request a Date") {
+            
+            Button{
                 performAction(with: .requested)
+            } label:{
+                RequestADateView()
             }
-            .padding()
+            
+            
+           
         }
        
     }
